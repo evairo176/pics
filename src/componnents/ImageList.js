@@ -1,24 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
+import "./ImageList.css";
 import React from "react";
+import ImageCard from "./ImageCard";
 
 const ImageList = (props) => {
-  const imagesAll = props.images.map((images) => {
+  const imagesAll = props.images.map((image) => {
     // eslint-disable-next-line jsx-a11y/alt-text
-    return (
-      <div key={images.id} className="col-lg-4 col-md-4 col-sm-12 mb-3">
-        <img
-          alt={images.description}
-          src={images.urls.regular.toString()}
-          className="img-fluid"
-        />
-      </div>
-    );
+    return <ImageCard key={image.id} image={image} />;
   });
-  return (
-    <div>
-      <div className="row">{imagesAll}</div>
-    </div>
-  );
+  return <div className="image-list">{imagesAll}</div>;
 };
 
 export default ImageList;
